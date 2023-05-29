@@ -2,8 +2,17 @@
 let id = document.createElement("div")
 id.setAttribute("id", "time")
 
-
 let c =new Audio("clock-alarm-8761.mp3")
+
+let loopOptions = (n,element) =>{
+  for(let i=0;i<=n;i++){
+    let option = document.createElement("option");
+    let a = '0'+ i;
+    option.setAttribute("value",subStr(a));
+    option.innerHTML=subStr(a)
+    element.appendChild(option)
+  }  
+}
 
 let style = document.createElement("style")
 style.innerHTML = `#time{text-align: center;margin-top: 5rem;padding: 0;display: grid;font-size: 50px;color: cadetblue;background-image: linear-gradient(45deg, #ebcdcd, #96b58d);}
@@ -69,13 +78,7 @@ let select = document.createElement("select");
 select.setAttribute("id","select");
 alarmContainer.append(select)
 
-for(let i=0;i<25;i++){
-  let option = document.createElement("option");
-  let a = '0'+ i;
-  option.setAttribute("value",subStr(a));
-  option.innerHTML=subStr(a)
-  select.appendChild(option)
-}
+loopOptions(25,select)
 
 let Hr = document.createElement("label");
 Hr.innerHTML = "hr"
@@ -85,13 +88,7 @@ let select1 = document.createElement("select");
 select1.setAttribute("id","select");
 alarmContainer.append(select1)
 
-for(let i=0;i<=60;i++){
-  let option = document.createElement("option");
-  let a = '0'+ i;
-  option.setAttribute("value",subStr(a));
-  option.innerHTML=subStr(a)
-  select1.appendChild(option)
-}
+loopOptions(60,select1)
 
 let Min = document.createElement("label");
 Min.innerHTML = "min"
@@ -102,13 +99,7 @@ let select3 = document.createElement("select");
 select3.setAttribute("id","select");
 alarmContainer.append(select3)
 
-for(let i=0;i<=60;i++){
-  let option = document.createElement("option");
-  let a = '0'+ i;
-  option.setAttribute("value",subStr(a));
-  option.innerHTML=subStr(a)
-  select3.appendChild(option)
-}
+loopOptions(60,select3)
 
 let Sec = document.createElement("label");
 Sec.innerHTML = "sec"
@@ -183,6 +174,9 @@ function subStr(s){
   }
   return c.concat(d);
 }
+
+
+
 
 
 paratbn.addEventListener('click',(e)=>{
