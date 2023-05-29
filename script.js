@@ -112,7 +112,6 @@ document.body.append(alarmContainer)
 
 let resulDiv = document.createElement("div");
 resulDiv.setAttribute("id","reslt");
-document.body.append(resulDiv);
 
 let para = document.createElement("p");
 para.setAttribute("id","p");
@@ -160,7 +159,10 @@ let a = () => {
 btn.addEventListener('click',(e)=>{
   e.preventDefault();
   let alarm_time = `${select.value}:${select1.value}:${select3.value}`
+  resulDiv.style.display = "flex"
   alarmSet = alarm_time.trim()
+  document.body.append(resulDiv);
+
 })
 
 function subStr(s){
